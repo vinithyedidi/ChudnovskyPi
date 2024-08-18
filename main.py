@@ -57,13 +57,13 @@ def chudnovsky(n):
 
 def main():
     # set default settings for Decimal class
-    getcontext().prec = 1000001  # number of digits of decimal precision (+1 for the initial 3)
+    getcontext().prec = 100000001  # number of digits of decimal precision (+1 for the initial 3)
     getcontext().Emax = MAX_EMAX
-    n = 500000
+    n = 50000000
 
     # read reference value to compare our pi with
     print('\nReading reference value...')
-    file = open('/Users/vinithyedidi/CodingProjects/Pycharm/AccuratePi/pi_reference/pi_million.txt', 'r')
+    file = open('/Users/vinithyedidi/CodingProjects/Pycharm/AccuratePi/pi_reference/pi_billion.txt', 'r')
     real_pi = Decimal(file.read())
     file.close()
     print('Reference value established.')
@@ -73,7 +73,7 @@ def main():
     pi = chudnovsky(n)
 
     # write to file
-    filename = 'my_pi_million.txt'
+    filename = 'my_pi_100million.txt'
     print('\nWriting pi value to file: ' + filename + '...')
     file = open('/Users/vinithyedidi/CodingProjects/Pycharm/AccuratePi/' + filename, 'w')
     file.write('{0:f}'.format(real_pi))
